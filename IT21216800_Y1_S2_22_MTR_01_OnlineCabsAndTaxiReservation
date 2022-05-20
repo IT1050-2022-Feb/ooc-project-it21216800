@@ -1,0 +1,75 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+//UnRegisteredUser.h
+
+class UnRegisteredUser{
+	
+	protected:
+		
+		string name;
+		string email;
+		int contactNo;
+		string nIC;
+		
+		
+	public:
+		
+		UnRegisteredUser(string uname);
+		void setCustomerDetails(string uname, string nic);
+		int getCustomerDetails();
+		void displayUserDetails();
+		~UnRegisteredUser();	
+	
+	
+};
+
+//UnRegisteredUser.cpp
+
+	UnRegisteredUser :: UnRegisteredUser(string uname)
+		{  
+		   name = uname;
+		}
+		
+	void UnRegisteredUser :: setCustomerDetails(string uname, string nic)
+		{
+			
+		}
+		
+	int UnRegisteredUser :: getCustomerDetails()
+		{
+			
+		}
+		
+	void UnRegisteredUser :: displayUserDetails()
+		{
+			
+		}
+		
+	UnRegisteredUser :: ~UnRegisteredUser()
+		{
+			
+		}
+		
+	//main
+	
+	int main(){
+		
+		UnRegisteredUser * nUser;
+		nUser = new UnRegisteredUser("Kamal");//create unreguser object
+		nUser -> setCustomerDetails("Kamal", "200145630V");//set details to attributes
+		nUser -> displayUserDetails();//display details
+		
+    return 0;
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
