@@ -1,0 +1,52 @@
+#include<iostream>
+
+using namespace std;
+
+
+float Cash::Cash1(float cAmount,float cBalance)
+{
+	balance = cBalance - cAmount;
+
+	return balance;
+}
+
+void Cash::cashRecept()
+{
+
+}
+void Cash::cashBalance()
+{
+
+}
+
+
+
+
+class Cash
+{
+private:
+
+	float payedAmount;
+	float balance;
+
+public:
+
+	float Cash1(float cAmount,float cbalance);
+	void cashRecept();
+	void cashBalance();
+
+};
+
+
+
+
+
+
+
+
+int main()
+{
+	float Cash1(500);
+	void cashRecept();
+	void cashBalance();
+}
