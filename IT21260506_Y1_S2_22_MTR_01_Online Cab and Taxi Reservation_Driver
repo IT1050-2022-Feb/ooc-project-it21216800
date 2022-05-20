@@ -1,0 +1,88 @@
+//main file
+
+#include<cstring>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    driver dr1;
+
+    dr1.driver1("Wimal", 123);
+
+    dr1.rideDetails("Colombo", "Kottawa", 123);
+
+    dr1.recievePayment();
+}
+
+
+
+
+//.cpp file
+
+int driver::driver1(const char Sname[], int SdriverID)
+{
+	strcpy_s(driverName, Sname);
+	driverID = SdriverID;
+
+	return driverID;
+}
+
+int driver::rideDetails(const char SpickupLocation[], const char SdropLocation[], int SbookingID)
+{
+	strcpy_s(pickupLocation, SpickupLocation);
+
+	strcpy_s(dropLocation, SdropLocation);
+
+	bookingID = SbookingID;
+
+	return bookingID;
+
+}
+
+void driver::cancelRide()
+{
+	
+}
+
+
+void driver::recievePayment()
+{
+	cout << "------------------------------------" << endl;
+	cout << "  Pickup Location :     " << pickupLocation << endl;
+	cout << "  Drop Location   :     " << dropLocation << endl;
+	cout << "  Booking ID      :     " << bookingID << endl;
+	cout << "------------------------------------" << endl;
+  
+}
+
+
+//.h file
+
+class driver
+{
+private:
+
+	int driverID;
+	char driverName[15];
+	char vehicleType[15];
+	int bookingID;
+	char pickupLocation[15];
+	char dropLocation[15];
+
+public:
+
+	int driver1(const char name[], int driverID);
+
+	int rideDetails(const char pickupLocation[],const char dropLocation[], int bookingID);
+
+	void cancelRide();
+
+	void recievePayment();
+};
+
+
+
+
+
