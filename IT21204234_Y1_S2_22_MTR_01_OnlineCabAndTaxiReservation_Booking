@@ -1,0 +1,82 @@
+
+
+#include <iostream>
+
+#include<cstring>
+
+
+
+using namespace std;
+
+int main()
+{
+	Booking book;
+
+	book.Booking1(123, "Hasiru");
+
+	book.setBookingDetails("Matara", "Galle", "2022/06/05", "6.34", "van");
+
+
+
+}
+
+
+
+int Booking::Booking1(int SBookingid, const char ScustomerName[])
+{
+	strcpy_s(customerName,ScustomerName);
+	bookingid = SBookingid;
+
+	return bookingid;
+}
+void Booking::setBookingDetails(const char spickupLocation[], const char sdropLocation[], const char sdate[],const char stime[], const  char svehicleType[])
+{
+	strcpy_s(pickupLocation,spickupLocation);
+
+	strcpy_s(dropLocation, sdropLocation);
+
+	strcpy_s(date, sdate);
+
+	strcpy_s(time, stime);
+
+	strcpy_s(vehicleType, svehicleType);
+
+
+	cout << " --------------------------" << endl;
+	cout << "Pickup Location  : " << pickupLocation << endl;
+	cout << "Drop Location    : " << dropLocation << endl;
+	cout << "Date             : " << date << endl;
+	cout << "time             : " << time << endl;
+	cout << "Vehicle type     : " << vehicleType << endl;
+	cout << " --------------------------" << endl;
+}
+
+
+
+class Booking
+{
+private:
+
+    char customerName[20];
+	int custermerid;
+	int  bookingid;
+	char pickupLocation[20];
+	char dropLocation[20];
+	char date[20];
+	char time[20];
+	char vehicleType[20];
+
+public:
+
+	int Booking1(int SBookingid,const char ScustomerName[]);
+
+	void setBookingDetails( const char spickupLocation[], const char sdropLocation[], const char sdate[],const char stime[], const  char svehicleType[]);
+
+	void displayDriverDetails();
+
+
+
+
+};
+
+
