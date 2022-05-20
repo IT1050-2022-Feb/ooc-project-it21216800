@@ -1,0 +1,58 @@
+//main file
+
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+	Vehicle Vh;
+
+    Vh.Vehicle1("CAB-5465", "Car", "2015");
+	Vh.display();
+}
+
+//.cpp file
+
+
+int Vehicle::Vehicle1(const char licenseNo[], const char ptype[], const char pmodel[])
+{
+	strcpy_s(type, ptype);
+	strcpy_s(licensePlateNo, licenseNo);
+	strcpy_s(model, pmodel);
+
+	return 0;
+}
+
+void Vehicle::display()
+{
+	cout << "*******************************" << endl;
+	cout << "License plate no  : " << licensePlateNo << endl;
+	cout << "Type              : " << type << endl;
+	cout << "Model             : " << model << endl;
+	
+	
+}
+
+
+//.h file
+
+class Vehicle
+{
+private:
+
+	char licensePlateNo[20];
+	char type[20];
+	char model[20];
+
+public:
+
+	int Vehicle1(const char  licenseNo[], const char type[], const char model[]);
+	void display();
+
+
+};
+
+
+
