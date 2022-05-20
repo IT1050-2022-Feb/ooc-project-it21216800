@@ -2,84 +2,58 @@
 #include"cstring"
 using namespace std;
 
-//call Registered User
-class RegisteredUser : public UnregisteredUser 
+//call Feedback
+class Feedback
 {
 private:
-	//class relationship
-	Booking* booking[SIZE];
-	Feedback* feedback[SIZE];
-
-	int customerId;
-	char customerUsername[10];
-	char customerPassword[10];
-
+	int feedbackNo;
+	char Email[20];
+	char feedbackMsg[300];
+	RegisteredUser* RegUser;
 public:
-	RegisteredUser();
-	RegisteredUser(int CID, const char Uname[], const char Pwd[]);
-	void addBooking(Booking* B);
-	void addFeedback(Feedback* F);
-	void logincredintialValidation();
-	void display();
-	~RegisteredUser();
+	Feedback();
+	Feedback(int feedNo, const char fEmail[], const char feedMsg[], RegisteredUser* Rus);
+	void displayFeedback();
+	~Feedback();
 };
 
-//methods of Registered User
-RegisteredUser::RegisteredUser() 
+//methods of Feedback
+Feedback::Feedback()
 {
-	customerId = 0;
-	strcpy_s(customerUsername, "");
-	strcpy_s(customerPassword, "");
+	feedbackNo = 0;
+	strcpy_s(Email, "");
+	strcpy_s(feedbackMsg, "");
 }
 
-RegisteredUser::RegisteredUser(int CID, const char Uname[], const char Pwd[],const char Cname[],const char Cemail[],const char Cnic,int Cno) 
-	: UnregisteredUser(Cname,Cemail,Cnic,Cno)
+Feedback::Feedback(int feedNo, const char fEmail[], const char feedMsg[], RegisteredUser* Rus)
 {
-	customerId = CID;
-	strcpy_s(customerUsername, Uname);
-	strcpy_s(customerPassword, Pwd);
-	strcpy_s(name, Cname);
-	strcpy_s(email, Cemail);
-	strcpy_s(nic, Cnic);
-	contactNo = Cno;
+	feedbackNo = feedNo;
+	strcpy_s(Email, fEmail);
+	strcpy_s(feedbackMsg, feedMsg);
+	RegUser = Rus;
+	RegUser->addfeedback(this);
 }
 
-void RegisteredUser::logincredintialValidation()
+void Feedback::displayFeedback()
 {
-
+	cout << "Feedback No = " << feedbackNo << endl;
+	cout << "Email = " << Email << endl;
+	cout << "Message = " << feedbackMsg << endl;
 }
 
-void RegisteredUser::addFeedback(Feedback* F)
+Feedback::~Feedback()
 {
-
-}
-
-void RegisteredUser::addBooking(Booking* B)
-{
-
-}
-
-void RegisteredUser::display()
-{
-	cout << "Customer ID = " << customerId << endl;
-	cout << "Customer name = " << name << endl;
-	cout << "Customer email = " << email << endl;
-	cout << "Customer contact number = " << contactNo << endl;
-	cout << "Customer NIC number = " << nic << endl;
-}
-
-RegisteredUser::~RegisteredUser() 
-{
-	cout << "Delete Registerd User details!!!" << endl;
+	cout << "Delete Feedback!!!" << endl;
 }
 
 int main()
 {
-	RegisteredUser* Ruser;
-	Ruser = new RegisteredUser(001, "Shakya123", "258964*SKY", "Shakya Abiman", "shakya123@gmail.com", "200014789652V", 94716425783);
-	Ruser->display();
 
-	delete Ruser;
+	Feedback* feedB;
+	feedB = new Feedback(101, "shakya123@gmail.com", "I am very happy about the service");
+	feedB->displayFeedback();
+
+	delete feedB;
 
 	return 0;
 }
