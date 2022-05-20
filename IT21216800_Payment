@@ -1,0 +1,73 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+//Payment.h
+class Payment{
+	
+	protected:
+		
+		int teceiptNo;
+		float charges;
+		string payDate;
+		float reserveFee;
+		float totAmount;
+		
+		
+	public:
+		
+		Payment( int reNo,float pcharges, string pDate);
+		void setPaymentDetails(float reFee, float tot);
+		int getPaymentDetails();
+		void displayPayDetails();
+		~payment();	
+	
+	
+};
+
+
+//Payment.cpp
+
+	Payment :: Payment( int reNo,float pcharges, string pDate)
+		{  
+		   receiptNo = reNo;
+		   charges = pcharges;
+		   payDate = pDate;
+		   
+		}
+		
+	void Payment :: setPaymentDetails(float reFee, float tot)
+		{
+			
+		}
+		
+	int Payment :: getPaymentDetails()
+		{
+			
+		}
+		
+	void Payment :: displayPayDetails()
+		{
+			
+		}
+		
+	Payment :: ~payment()
+		{
+			
+		}
+		
+	//main
+	
+	int main(){
+		
+		Payment * newpay;
+		newpay = new Payment(05,5000.00,"Monday");//create payment object
+		newpay -> setPaymentDetails(4000.00, 3500.00);//set details to attributes
+		newpay -> displayPayDetails();//display details
+		
+    return 0;
+	}
+
+
+
