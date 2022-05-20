@@ -1,0 +1,60 @@
+#include<iostream>
+#include"cstring"
+using namespace std;
+
+//Feedback.h
+class Feedback
+{
+private:
+	int feedbackNo;
+	char Email[20];
+	char feedbackMsg[300];
+	RegisteredUser* RegUser;
+public:
+	Feedback();
+	Feedback(int feedNo, const char fEmail[], const char feedMsg[], RegisteredUser* Rus);
+	void displayFeedback();
+	~Feedback();
+};
+
+//Feedback.cpp
+Feedback::Feedback()
+{
+	feedbackNo = 0;
+	strcpy_s(Email, "");
+	strcpy_s(feedbackMsg, "");
+}
+
+Feedback::Feedback(int feedNo, const char fEmail[], const char feedMsg[], RegisteredUser* Rus)
+{
+	feedbackNo = feedNo;
+	strcpy_s(Email, fEmail);
+	strcpy_s(feedbackMsg, feedMsg);
+	RegUser = Rus;
+	RegUser->addfeedback(this);
+}
+
+void Feedback::displayFeedback()
+{
+	cout << "Feedback No = " << feedbackNo << endl;
+	cout << "Email = " << Email << endl;
+	cout << "Message = " << feedbackMsg << endl;
+}
+
+Feedback::~Feedback()
+{
+	cout << "Delete Feedback!!!" << endl;
+}
+
+//main file
+int main()
+{
+
+	Feedback* feedB;
+	feedB = new Feedback(101, "shakya123@gmail.com", "I am very happy about the service");
+	feedB->displayFeedback();
+
+	delete feedB;
+
+	return 0;
+}
