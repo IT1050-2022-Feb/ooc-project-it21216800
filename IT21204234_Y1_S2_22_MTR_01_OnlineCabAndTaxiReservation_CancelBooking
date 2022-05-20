@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include<cstring>
+
+
+using namespace std;
+
+int main()
+{
+	CancelBooking CB;
+
+	CB.cancelBooking("1234", "Kasun");
+	CB.display();
+
+}
+
+
+
+
+
+
+int CancelBooking::cancelBooking(const char pBookingID[], const char pcustomerName[])
+{
+	strcpy_s(customerName, pcustomerName);
+	strcpy_s(cBookingID, pBookingID);
+	return 0;
+
+}
+void CancelBooking::display()
+{
+	cout << endl;
+	cout << "   Book ID          : " << cBookingID << endl;
+	cout << "   Customer Name    : " << customerName << endl;
+
+	cout << endl;
+	cout << "---------- Canseled Book Now --------" << endl;
+	
+	
+
+}
+
+
+class CancelBooking
+{
+private:
+	char cBookingID[20];
+	char customerName[20];
+
+public:
+	int cancelBooking(const char pBookingID[], const char pcustomerName[]);
+	void display();
+	
+
+
+};
+
+
