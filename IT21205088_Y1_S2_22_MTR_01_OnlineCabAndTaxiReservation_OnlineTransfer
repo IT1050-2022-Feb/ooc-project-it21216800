@@ -1,0 +1,91 @@
+#include <iostream>
+
+#include<cstring>
+
+using namespace std;
+
+int main()
+
+{
+	OnlineTransfer onf;
+
+	onf.CardDetails("Debit","1234 6598 5632 5478", "27/04", 540.0);
+
+	onf.displayDiscount();
+
+	onf.calcPayAmount();
+
+	onf.displayCardDeatails();
+
+}
+
+
+
+
+
+
+
+
+int OnlineTransfer::CardDetails(const char cType[], const char cNo[], const char exDate[], float cDis)
+
+{
+		strcpy_s(cardType,cType);
+
+		strcpy_s(cardNo, cNo);
+
+		strcpy_s(expiraryDate, exDate);
+
+		discount = cDis;
+
+		return discount;
+
+ }
+
+void OnlineTransfer:: displayDiscount()
+{
+
+}
+
+void OnlineTransfer::calcPayAmount()
+{
+
+}
+
+void OnlineTransfer::displayCardDeatails()
+{
+	cout <<"-----------------------------------" << endl;
+
+	cout << endl;
+
+	cout <<"Card Type     : " << cardType << endl;
+
+	cout << "Card Number   : " << cardNo << endl;
+
+	cout << "Expiry  Date  : " << expiraryDate << endl;
+
+	cout << "Discount      : Rs." << discount << endl;
+
+	cout << endl;
+
+	cout << "****" << endl;
+}
+
+
+
+class OnlineTransfer
+{
+private:
+	char cardType[20];
+	char cardNo[20];
+	char expiraryDate[20];
+	float discount;
+
+public:
+	int CardDetails(const char cType[], const char cNo[], const char exDate[], float cDis);
+
+	void displayDiscount();
+	void calcPayAmount();
+	void displayCardDeatails();
+
+
+};
